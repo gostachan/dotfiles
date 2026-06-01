@@ -68,7 +68,10 @@ alias ezsh='nvim ~/.zshrc && source ~/.zshrc'
 alias etmux='vim ~/.tmux.conf && tmux display-message "Reloaded tmux.conf" && tmux source-file ~/.tmux.conf'
 
 # claude
-alias csp='claude --dangerously-skip-permissions'
+alias clsp='claude --dangerously-skip-permissions'
+
+# codex
+alias cosp='codex --dangerously-skip-permissions'
 
 # python
 alias p='python3'
