@@ -102,6 +102,22 @@ return {
       -- Git 管理ファイル + .env だけを対象に grep
       vim.keymap.set({ "n", "v" }, "<C-g>", live_grep_git_tracked_with_env, { desc = "Live grep (git-tracked + .env)" })
 
+      -- 全ファイル検索 (.gitignore / untracked も含む。.git/ のみ除外)
+      vim.keymap.set({ "n", "v" }, "<C-S-m>", function()
+        builtin.find_files({
+          find_command = { "rg", "--files", "--hidden", "--no-ignore", "--glob", "!.git/" },
+          hidden = true,
+          no_ignore = true,
+          file_ignore_patterns = { ".git/" },
+        })
+      end, { desc = "Find files (all, incl. ignored)" })
+      -- 全ファイル対象 grep (.gitignore / untracked も含む)
+      vim.keymap.set({ "n", "v" }, "<C-S-g>", function()
+        builtin.live_grep({
+          additional_args = function() return { "--hidden", "--no-ignore", "--glob", "!.git/" } end,
+        })
+      end, { desc = "Live grep (all, incl. ignored)" })
+
       -- LSP 定義ジャンプ（Telescope UI で重複も見やすい）
       vim.keymap.set("n", "gd", function()
         builtin.lsp_definitions({ reuse_win = true })
