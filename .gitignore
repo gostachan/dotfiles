@@ -41,6 +41,9 @@
 !/.bin.local
 !/nix/
 !/nix/**
+!/launchd/
+!/launchd/**
+/launchd/**/run.log
 !/.tmux.conf
 !/.tmux/
 !/.tmux/conf/
