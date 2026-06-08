@@ -72,6 +72,9 @@
 !/.gitconfig_shared
 !/.claude/
 !/.claude/settings.json
+!/.docker/
+/.docker/**
+!/.docker/config.json
 
 !/README.md
 !/AGENTS.md
