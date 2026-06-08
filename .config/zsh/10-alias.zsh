@@ -71,7 +71,7 @@ alias etmux='vim ~/.tmux.conf && tmux display-message "Reloaded tmux.conf" && tm
 alias clsp='claude --dangerously-skip-permissions'
 
 # codex
-alias cosp='codex --dangerously-skip-permissions'
+alias cosp='codex --ask-for-approval never'
 
 # python
 alias p='python3'
