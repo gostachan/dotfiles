@@ -32,6 +32,8 @@ let
     buf
     codex
     claude-code
+    colima
+    docker-client
     gh
     ipcalc
     marp-cli
