@@ -80,5 +80,6 @@
 !/AGENTS.md
 !/CLAUDE.md
 !/LICENSE
+!/Makefile
 !.gitignore
 !.gitkeep

@@ -1,7 +1,7 @@
 set -ue
 
 helpmsg() {
-  command echo "Usage: $0 [--help | -h]" 0>&2
+  command echo "Usage: $0 [--debug | -d] [--help | -h]" 0>&2
   command echo ""
 }
 
@@ -58,15 +58,6 @@ while [ $# -gt 0 ];do
   shift
 done
 
-# script_dir="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd -P)"
-# if [ -x "$script_dir/setup-laravel-ls.sh" ]; then
-#   command echo "[install] running setup-laravel-ls.sh..."
-#   "$script_dir/setup-laravel-ls.sh"
-# else
-#   command echo "[install] setup-laravel-ls.sh not found or not executable, skipped."
-# fi
-
 link_to_homedir
 git config --global include.path "~/.gitconfig_shared"
 command echo -e "Install completed!!!!"
-

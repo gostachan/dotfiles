@@ -20,7 +20,7 @@ This file is shared by Codex and Claude Code. `CLAUDE.md` is a symlink to this f
 - Shared Nix package ownership lives in `nix/packages.nix`; update that list instead of adding ad-hoc installation scripts.
 - macOS-only nix-darwin configuration lives in `nix/darwin.nix`.
 - The Nix flake entrypoint is `flake.nix`; the portable darwin configuration name is `default`.
-- Machine bootstrap entrypoint is `.bin/bootstrap.sh`; nix-darwin derives `system.primaryUser` from the current non-root user via `SUDO_USER` / `USER`, so run darwin rebuilds with `--impure`.
+- Machine bootstrap entrypoint is `make bootstrap` (composes `nix-install` → `link` → `switch`); standalone scripts live in `.bin/` (`install-nix.sh`, `install.sh`). nix-darwin derives `system.primaryUser` from the current non-root user via `SUDO_USER` / `USER`, so run darwin rebuilds with `--impure`.
 - Install Karabiner-Elements as a macOS-only Nix package in `nix/darwin.nix`; do not enable `services.karabiner-elements` unless the nix-darwin module matches the package layout.
 - Nixpkgs unfree exceptions live in `nix/nixpkgs-config.nix`; prefer narrow `allowUnfreePredicate` entries over globally allowing all unfree packages.
 - Manage Claude Code as the Nix package `claude-code`; do not manage Claude login/session state in dotfiles.
