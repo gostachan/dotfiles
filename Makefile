@@ -19,5 +19,6 @@ link: ## dotfiles を $HOME へ symlink (.bin/install.sh)
 switch: ## nix-darwin 設定を適用 (darwin-rebuild switch)
 	@sudo darwin-rebuild switch --impure --flake "$(FLAKE_REF)"
 
-update: ## flake.lock を更新
+update: ## flake.lock を更新して nix-darwin 設定を適用
 	@nix flake update --flake $(DOTFILES_DIR)
+	@$(MAKE) switch
