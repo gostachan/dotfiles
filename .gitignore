@@ -72,7 +72,6 @@
 !/.gitconfig_shared
 !/.claude/
 !/.claude/settings.json
-!/.claude/settings.local.json
 !/.claude/keybindings.json
 !/.claude/commands/
 !/.claude/commands/**
