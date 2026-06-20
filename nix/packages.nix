@@ -14,6 +14,8 @@ let
   };
 
   languages = [
+    cabal-install
+    ghc
     go
     nodejs
     pnpm
@@ -23,6 +25,7 @@ let
   languageServers = [
     clang-tools
     gopls
+    haskell-language-server
     pyright
     sqls
     terraform-ls
