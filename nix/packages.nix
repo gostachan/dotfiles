@@ -44,6 +44,7 @@ let
     neovim
     podman
     ripgrep
+    snowflake-cli
     terraform
     tmux
     tree-sitter
