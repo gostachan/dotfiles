@@ -38,6 +38,18 @@ return {
         positionEncodings = { "utf-8" },
       }
 
+      -- pyright などは docstring 内の Markdown 特殊文字 (_ * ` など) を
+      -- \_ \* のようにエスケープして hover を返すが、フロート描画時に
+      -- そのバックスラッシュが除去されず文字として残る。描画直前に外す。
+      local convert_markdown = vim.lsp.util.convert_input_to_markdown_lines
+      vim.lsp.util.convert_input_to_markdown_lines = function(input, contents)
+        local lines = convert_markdown(input, contents)
+        for i, line in ipairs(lines) do
+          lines[i] = line:gsub("\\([\\`*_{}%[%]()#+%-.!])", "%1")
+        end
+        return lines
+      end
+
       vim.diagnostic.config({
         virtual_text = true,
         severity_sort = true,
