@@ -4,6 +4,7 @@
   nix.enable = false;
 
   nixpkgs.config = import ./nixpkgs-config.nix { inherit lib; };
+  nixpkgs.overlays = import ./overlays.nix;
   nixpkgs.hostPlatform = "aarch64-darwin";
 
   environment.systemPackages =
